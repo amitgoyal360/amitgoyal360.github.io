@@ -14,6 +14,34 @@
 			<link rel="stylesheet" href="css/skel-noscript.css" />
 			<link rel="stylesheet" href="css/style.css" />
 		</noscript>
+		<script type="text/javascript">
+			function validateForm()
+			{
+
+				var a=document.forms["Form"]["name"].value;
+				var b=document.forms["Form"]["email"].value;
+				var c=document.forms["Form"]["message"].value;
+				if (a==null || a=="" ) 
+				  {
+					  document.getElementById('name').placeholder = "No Name Entered !";
+					  document.getElementById('name').style.borderColor = "red";
+				  }
+				if( b==null || b=="")
+					{
+						document.getElementById('email').placeholder = "No Email Entered !";
+				  		document.getElementById('email').style.borderColor = "red";
+					}
+				if( c==null || c=="")
+					{
+						document.getElementById('message').placeholder = "No Message Entered !";
+				  		document.getElementById('message').style.borderColor = "red";
+					}
+				if(a==null || a==""||b==null || b==""||c==null || c=="")
+				{
+					return false;
+				}
+			}
+	</script>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 	</head>
 	<body>
@@ -22,7 +50,7 @@
 			<header id="header">
 
 				<!-- Logo -->
-					<h1 id="logo" ><a href="#"><font color="blue">Amit Goel</font></a></h1>
+					<h1 id="logo" ><a href="#"><font color="#21A6CE">Amit Goel</font></a></h1>
 				
 				<!-- Nav -->
 					<nav id="nav">
@@ -82,12 +110,7 @@
 						<p>Successfully completed Summer Training in Dot Net with C# from Globsyn Summer School</p>
 					</header>
 					
-					<!--
-						 Lightbox Gallery
-						 
-						 Powered by poptrox. Full docs here: https://github.com/n33/jquery.poptrox
-					-->
-						<div class="container small gallery">
+						<!-- <div class="container small gallery">
 							<div class="row flush images">
 								<div class="6u"><a href="images/fulls/01.jpg" class="image full l"><img src="images/thumbs/01.jpg" title="The Anonymous Red" alt="" /></a></div>
 								<div class="6u"><a href="images/fulls/02.jpg" class="image full r"><img src="images/thumbs/02.jpg" title="Airchitecture II" alt="" /></a></div>
@@ -101,7 +124,7 @@
 								<div class="6u"><a href="images/fulls/06.jpg" class="image full r"><img src="images/thumbs/06.jpg" title="Bent IX" alt="" /></a></div>
 							</div>
 						</div>
-
+ -->
 				</div>
 			</section>
 			
@@ -121,13 +144,13 @@
 							 point the "action" attribute to it (eg. action="http://mydomain.tld/mail.php").
 							 More on how it all works here: http://www.1stwebdesigner.com/tutorials/custom-php-contact-forms/
 						-->
-							<form method="post" action="mailto:developer.amitgoel360@gmail.com" enctype="text/plain">
+							<form method="post" action="mailto:developer.amitgoel360@gmail.com" name = "Form" id = "form" onsubmit="return validateForm()" enctype="text/plain">
 								<div class="row half">
-									<div class="6u"><input type="text" name="name" placeholder="Name" /></div>
-									<div class="6u"><input type="text" name="email" placeholder="Email" /></div>
+									<div class="6u"><input type="text" name="name" id = "name" placeholder="Name" /></div>
+									<div class="6u"><input type="text" name="email" id = "email" placeholder="Email" /></div>
 								</div>
 								<div class="row half">
-									<div class="12u"><textarea name="message" placeholder="Message" rows="6"></textarea></div>
+									<div class="12u"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
 								</div>
 								<div class="row">
 									<div class="12u">
@@ -146,9 +169,9 @@
 			<footer id="footer">
 			
 				<!--
-				     Social Icons
-				     
-				     Use anything from here: http://fortawesome.github.io/Font-Awesome/cheatsheet/)
+					 Social Icons
+					 
+					 Use anything from here: http://fortawesome.github.io/Font-Awesome/cheatsheet/)
 				-->
 					<ul class="actions">
 						<li><a href="https://twitter.com/AmitGoyal360" target="_blank" class="fa solo fa-twitter"><span>Twitter</span></a></li>
